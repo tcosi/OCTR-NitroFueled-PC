@@ -2,7 +2,7 @@ name: Build and release
 
 on:
   push:
-    branches: [main]
+    branches: [mod-overlay-live-test]
     tags: ["v*"]
   pull_request:
   workflow_dispatch:
@@ -73,7 +73,7 @@ jobs:
 
   windows:
     name: Windows portable ZIP
-    if: github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/v')
+    if: github.ref == 'refs/heads/mod-overlay-live-test'
     needs: checks
     runs-on: windows-2022
     timeout-minutes: 180
